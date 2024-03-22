@@ -2,12 +2,22 @@
     <head>
         <style>
             body{
-                font-family:monospace;
+                font-family: monospace;
+                font-size: 7vh;
+                overflow: hidden;
+            }
+            #display-container{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
             }
         </style>
     </head>
     <body>
-        <div id="display"></div>
+        <div id="display-container">
+            <div id="display"></div>
+        </div>
         <script src="script.js"></script>
     </body>
 </html>

@@ -1,6 +1,6 @@
 // console.log("HERE")
 
-let size = 50;
+let size = 10;
 
 let grid = new Array();
 for(i=0;i<size;i++){
@@ -20,10 +20,15 @@ console.table(grid);
 printGrid(grid)
 
 newgrid = nextGrid(grid)
-setInterval(()=>{
+let count = 0;
+var interval = setInterval(()=>{
     newgrid = nextGrid(newgrid)
     printGrid(newgrid)
     console.table(newgrid)
+    count ++;
+    if(count == 10){
+        clearInterval(interval)
+    }
 },1000);
 
 
