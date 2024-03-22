@@ -1,27 +1,48 @@
 // console.log("HERE")
-let grid = [[1,0,1],
-            [0,1,0],
-            [0,0,0]];
+
+let size = 50;
+
+let grid = new Array();
+for(i=0;i<size;i++){
+    let row = new Array();
+    for(j=0;j<size;j++){
+        let rndNo = Math.floor(Math.random() * 2);
+        row.push(rndNo);
+    }
+    grid.push(row)
+
+
+}
+
 
 
 console.table(grid);
-
+printGrid(grid)
 
 newgrid = nextGrid(grid)
 setInterval(()=>{
     newgrid = nextGrid(newgrid)
     printGrid(newgrid)
     console.table(newgrid)
-},3000);
+},1000);
 
 
 
 function printGrid(grid){
-    document.getElementById("display").innerHTML = grid[0][0] + "" +grid[0][1]+ "" +grid[0][2] + "<br />" + grid[1][0] + "" +grid[1][1]+ "" +grid[1][2] + "<br />" + grid[2][0] + "" +grid[2][1]+ "" +grid[2][2] + "<br />"
+    outputStr = ""
+    for(i=0;i<grid.length;i++){
+        for(j=0;j<grid.length;j++){
+            outputStr += grid[i][j]==1 ? "&#9724;" : "&#9723;" ;
+        
+        }
+        outputStr += "<br />"
+
+    }
+    document.getElementById("display").innerHTML = outputStr;
 }
 
 function nextGrid(grid){
-    let newgrid =[...grid];
+    let newgrid = [...grid];
 
     for(i=0;i<grid.length;i++){
         for(j=0;j<grid.length;j++){
